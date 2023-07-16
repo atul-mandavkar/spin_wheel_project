@@ -13,7 +13,7 @@ function getLocation() {
                 + "&longitude=" + position.coords.longitude
                 + "&localityLanguage=en";
             getApi(bdcApi);
-            document.getElementById("demo").innerHTML = "In coordinates<br>Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude;
+            //document.getElementById("demo").innerHTML = "In coordinates<br>Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude;
         },
         (err) => { getApi(bdcApi); },
         {
