@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Step 2: Survey</title>
+  <link rel="stylesheet" type="text/css" href="./public/css/step2.css">
+</head>
+<body>
+    <div class="background"><img src="./media/bg.jpg" alt=""></div>
+  <div class="survey-container">
+    <h1>We have some questions for YOU!</h1>
+    <div id="question1" class="question">
+      <h2>Question 1</h2>
+      <p>Which operating system do you prefer on a smartphone?</p>
+      <div class="options">
+        <button onclick="answerQuestion('IOS')">IOS</button>
+        <button onclick="answerQuestion('Android')">Android</button>
+        <button onclick="answerQuestion('Windows')">Windows</button>
+      </div>
+    </div>
+    <div id="question2" class="question hidden">
+      <h2>Question 2</h2>
+      <p>Which brand of smartphone do you currently use?</p>
+      <div class="options">
+        <button onclick="answerQuestion('Iphone')">Iphone</button>
+        <button onclick="answerQuestion('Samsung')">Samsung</button>
+        <button onclick="answerQuestion('Other')">Other</button>
+      </div>
+    </div>
+    <div id="question3" class="question hidden">
+      <h2>Question 3</h2>
+      <p>Which laptop brand do you prefer?</p>
+      <div class="options">
+        <button onclick="answerQuestion('Apple')">Apple</button>
+        <button onclick="answerQuestion('Dell')">Dell</button>
+        <button onclick="answerQuestion('Lenovo')">Lenovo</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./public/js/step2.js"></script>
+</body>
+</html>
