@@ -77,20 +77,20 @@ let resultValue = 101;
 //Start spinning
 spinBtn.addEventListener("click", () => {
   spinBtn.disabled = true;
-  //Empty final value
+  // Empty final value
   finalValue.innerHTML = `<p>Good Luck!</p>`;
-  //Generate random degrees to stop at
+  // Generate random degrees to stop at
   let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
-  //Interval for rotation animation
+  // Interval for rotation animation
   let rotationInterval = window.setInterval(() => {
-    //Set rotation for piechart
+    // Set rotation for piechart
     /*
     Initially to make the piechart rotate faster we set resultValue to 101 so it rotates 101 degrees at a time and this reduces by 1 with every count. Eventually on last rotation we rotate by 1 degree at a time.
     */
     myChart.options.rotation = myChart.options.rotation + resultValue;
-    //Update chart with new value;
+    // Update chart with new value
     myChart.update();
-    //If rotation>360 reset it back to 0
+    // If rotation > 360 reset it back to 0
     if (myChart.options.rotation >= 360) {
       count += 1;
       resultValue -= 5;
@@ -100,7 +100,44 @@ spinBtn.addEventListener("click", () => {
       clearInterval(rotationInterval);
       count = 0;
       resultValue = 101;
-      spinBtn.style.pointerEvents='none';
+      spinBtn.style.pointerEvents = "none";
+      // Addition for stop the spinning sound
+      stopSpinSound();
     }
   }, 10);
+  // Addition for play the spinning sound
+  playSpinSound();
 });
+
+// Creating fuction to handle sound effect
+// Function to play the spinning sound
+function playSpinSound() {
+  var spinSound = document.getElementById("spin-sound");
+  spinSound.loop = true; // Enable looping
+  // Play the spinning sound with initial settings
+  spinSound.playbackRate = 2; // Fast initial speed
+  spinSound.volume = 1; // Full volume
+  spinSound.play();
+  slowDownSound();
+}
+
+// Function to stop the spinning sound
+function stopSpinSound() {
+  var spinSound = document.getElementById("spin-sound");
+  spinSound.loop = false; // Disable looping
+  spinSound.pause();
+  spinSound.currentTime = 0; // Reset the sound to the beginning
+}
+
+// Function to gradually slow down the sound
+function slowDownSound() {
+  //console.log("hello");
+  var spinSound = document.getElementById("spin-sound");
+  if (spinSound.playbackRate > 0.1) {
+    spinSound.playbackRate -= 0.01; // Decrease playback rate
+    if(spinSound.volume > 0.1) {
+      spinSound.volume -= 0.01; // Decrease volume
+    }
+    setTimeout(slowDownSound, 100); // Adjust the delay as per your preference
+  }
+}
