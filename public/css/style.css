@@ -1,32 +1,35 @@
 
 body {
-    margin: 0;
-    padding: 0;
-  }
-  
-  .background {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    /*background-image: url("../../media/bg.jpg");*/
-    background-size: cover;
-    background-position: center;
-    filter: blur(5px);
-  }
-  
+  margin: 0;
+  padding: 0;
+  background: linear-gradient(rgb(21, 13, 107) 1.1%, rgb(188, 16, 80) 130.5%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.video-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  z-index: 1;
+}
+
+.video-container video {
+  width: 100%;
+  height: 100%;
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
   .video-container {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 0;
+    width: 90%;
   }
-  
-  .video-container video {
-    min-width: 100%;
-    min-height: 100%;
+}
+
+@media screen and (max-width: 576px) {
+  .video-container {
+    width: 95%;
   }
-  
+}
