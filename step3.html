@@ -1,58 +1,60 @@
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Spin Wheel App</title>
-    <!-- Google Font -->
-    <link
-      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
-      rel="stylesheet"
-    />
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="./public/css/step3.css" />
-  </head>
-  <body>
-    <header>
-      <nav>
-        <button><a href="./login.html">Log in</a></button>
-      </nav>
-    </header>
-    <audio src="./media/new-audiomass-output2.mp3" id="spin-sound"></audio>
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spin Wheel App</title>
+  <!-- Google Font -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600&display=swap"
+    rel="stylesheet"
+  />
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="./public/css/step3.css" />
+</head>
+<body>
+  <header>
+    <nav>
+      <button><a href="./login.html">Log in</a></button>
+    </nav>
+  </header>
+  <audio src="./media/new-audiomass-output2.mp3" id="spin-sound"></audio>
 
-    <div class="wrapper">
-      <div class="container">
-        <canvas id="wheel"></canvas>
-        <button id="spin-btn">Spin</button>
-        <img src="https://cutewallpaper.org/24/yellow-arrow-png/155564497.jpg" alt="spinner arrow" />
-      </div>
-      <div id="final-value">
-        <p>Click On The Spin Button To Start</p>
-      </div>
+  <div class="wrapper">
+    <div class="container">
+      <canvas id="wheel"></canvas>
+      <button id="spin-btn">Spin</button>
+      <img src="https://cutewallpaper.org/24/yellow-arrow-png/155564497.jpg" alt="spinner arrow" />
     </div>
+    <div id="final-value">
+      <p>Click On The Spin Button To Start</p>
+    </div>
+  </div>
 
-    <!-- redeem popup -->
-    <div id="popupContainer">
-      <div id="popupWindow">
-        <h3 id="rewardName">Reward</h3>
-        <button id="reedemButton" onclick="redeemReward()">REDEEM</button>
-      </div>
+  <!-- redeem popup -->
+  <div id="popupContainer" style="display: none;">
+    <div id="popupWindow">
+      <h3 id="rewardName">Reward</h3>
+      <button id="reedemButton" onclick="redeemReward()">REDEEM</button>
     </div>
+  </div>
 
-    <!-- submit form -->
-    <div id="containerSubmit">
-      <form action="" id="submitForm">
-        <label for="userName">User Name:</label>
-        <input type="text" name="userName" id="userName"><br>
-        <label for="userEmail">User Email:</label>
-        <input type="email" name="userEmail" id="userEmail"><br>
-        <input type="submit" value="Submit" id="userSubmit">
-      </form>
-    </div>
-    
-    <!-- Chart JS -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
-    <!-- Chart JS Plugin for displaying text over chart -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
-    <!-- Script -->
-    <script src="./public/js/step3.js"></script>
-  </body>
+  <!-- submit form -->
+  <div id="containerSubmit" style="display: none;">
+    <form action="" id="submitForm">
+      <label for="userName">User Name:</label>
+      <input type="text" name="userName" id="userName"><br>
+      <label for="userEmail">User Email:</label>
+      <input type="email" name="userEmail" id="userEmail"><br>
+      <input type="submit" value="Submit" id="userSubmit">
+    </form>
+  </div>
+  
+  <!-- Chart JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+  <!-- Chart JS Plugin for displaying text over chart -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chartjs-plugin-datalabels/2.1.0/chartjs-plugin-datalabels.min.js"></script>
+  <!-- Script -->
+  <script src="./public/js/step3.js"></script>
+</body>
 </html>
+

@@ -1,191 +1,227 @@
 * {
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-    font-family: "Poppins", sans-serif;
-  }
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
 body {
-  height: 100vh;
-  background: linear-gradient(135deg, #c3a3f1, #6414e9);
+height: 100vh;
+background: linear-gradient(135deg, #c3a3f1, #6414e9);
+
 }
 header{
-  padding: 0;
-  margin: 0;
-  height: 10%;
+padding: 0;
+margin: 0;
+height: 10%;
 }
 header > nav{
-  padding: 0;
-  margin: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
+padding: 0;
+margin: 0;
+width: 100%;
+height: 100%;
+display: flex;
+flex-direction: row;
+justify-content: flex-end;
 }
 header > nav > button{
-  max-height: 60%;
-  min-width: 10%;
-  margin-right: 5%;
-  align-self: center;
-  padding: 10px 20px;
-  background-color: #fdcf3b;
-  color: #c66e16;
-  text-transform: uppercase;
-  font-size: larger;
-  font-weight: bold;
-  white-space: nowrap;
-  z-index: 2;
-  border: none;
-  border-radius: 5px;
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
+max-height: 60%;
+min-width: 10%;
+margin-right: 5%;
+align-self: center;
+padding: 10px 20px;
+background-color: #fdcf3b;
+color: #c66e16;
+text-transform: uppercase;
+font-size: larger;
+font-weight: bold;
+white-space: nowrap;
+z-index: 2;
+border: none;
+border-radius: 5px;
+box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.3);
 }
 header > nav > button:hover {
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
 }
-  
+
 header > nav > button:active {
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
-  transform: translateY(1px);
+box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+transform: translateY(1px);
 }
-  .wrapper {
-    width: 90%;
-    max-width: 34.37em;
-    max-height: 90vh;
-    background-color: #ffffff;
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    padding: 3em;
-    border-radius: 1em;
-    box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
+.wrapper {
+  width: 90%;
+  max-width: 34.37em;
+  max-height: 90vh;
+  background-color: #ffffff;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  padding: 3em;
+  border-radius: 1em;
+  box-shadow: 0 4em 5em rgba(27, 8, 53, 0.2);
+}
+.container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+#wheel {
+  max-height: inherit;
+  width: inherit;
+  top: 0;
+  padding: 0;
+}
+@keyframes rotate {
+  100% {
+    transform: rotate(360deg);
   }
-  .container {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  #wheel {
-    max-height: inherit;
-    width: inherit;
-    top: 0;
-    padding: 0;
-  }
-  @keyframes rotate {
-    100% {
-      transform: rotate(360deg);
-    }
-  }
-  #spin-btn {
-    position: absolute;
-    transform: translate(-50%, -50%);
-    top: 50%;
-    left: 50%;
-    height: 26%;
-    width: 26%;
-    border-radius: 50%;
-    cursor: pointer;
-    border: 0;
-    background: radial-gradient(#fdcf3b 50%, #d88a40 85%);
-    color: #c66e16;
-    text-transform: uppercase;
-    font-size: 1.8em;
-    letter-spacing: 0.1em;
-    font-weight: 600;
-  }
-  img {
-    position: absolute;
-    width: 4em;
-    top: 45%;
-    right: -8%;
-  }
-  #final-value {
-    font-size: 1.5em;
-    text-align: center;
-    margin-top: 1.5em;
-    color: #202020;
-    font-weight: 500;
-  }
+}
+#spin-btn {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 50%;
+  left: 50%;
+  height: 26%;
+  width: 26%;
+  border-radius: 50%;
+  cursor: pointer;
+  border: 0;
+  background: radial-gradient(#fdcf3b 50%, #d88a40 85%);
+  color: #c66e16;
+  text-transform: uppercase;
+  font-size: 1.8em;
+  letter-spacing: 0.1em;
+  font-weight: 600;
+}
+img {
+  position: absolute;
+  width: 4em;
+  top: 45%;
+  right: -8%;
+}
+#final-value {
+  font-size: 1.5em;
+  text-align: center;
+  margin-top: 1.5em;
+  color: #202020;
+  font-weight: 500;
+}
+
+/* Add the following CSS to center and style the popup */
+/* Rest of the CSS remains the same */
 
 /* Add the following CSS to center and style the popup */
 #popupContainer {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;
-  /*display: flex;*/
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  z-index: 9999; /* Ensure the popup is above other elements */
+margin-bottom: 10px;
 }
 
 #popupWindow {
-  max-width: 400px; /* Adjust the width to your preference */
-  background-color: #ffffff; /* White background color */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-  text-align: center;
+width: 450px; /* Adjust the width to your preference */
+height: 250px; /* Adjust the height to your preference */
+background-color: #bfafda; /* White background color */
+color:#8124d8;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+text-align: center;
+position: absolute; /* Position it absolutely within the wrapper */
+top: 50%; /* Center it vertically */
+left: 50%; /* Center it horizontally */
+transform: translate(-50%, -50%); /* Center it precisely */
+display: flex;
+flex-direction: column;  
+justify-content: center;
+align-items: center;
+text-align: center;
 }
 
 /* Add any additional styling for the content inside the popup */
 #popupWindow > #rewardName {
-  margin-bottom: 10px;
+margin-bottom: 10px;
 }
 
 #popupWindow > #reedemButton {
-  background-color: #007bff;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+background-color: #8124d8;
+color: #fff;
+padding: 10px 20px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
+margin-top: auto;
 }
 
-/* Adding css to center the form */
-#containerSubmit{
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: none;/*
-  display: flex;*/
-  justify-content: center;
-  align-items: center;
-  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
-  z-index: 9999; /* Ensure the popup is above other elements */
+/* Adding CSS to center the form */
+#containerSubmit {
+margin-bottom: 10px;
 }
-#submitForm{
-  background-color: #ffffff; /* White background color */
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
-  text-align: center;
+
+#submitForm {
+background-color: #bfafda; /* White background color */
+color: #6101bb;
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+text-align: center;
+position: absolute; /* Position it absolutely within the wrapper */
+top: 50%; /* Center it vertically */
+left: 50%; /* Center it horizontally */
+transform: translate(-50%, -50%); /* Center it precisely */
+width: 400px; /* Adjust the width to your preference */
+height: 300px; /* Adjust the height to your preference */
+background-color: #bfafda; /* White background color */
+padding: 20px;
+border-radius: 8px;
+box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+text-align: center;
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+}
+
+#submitForm label {
+font-size: 1.1em;
+margin-bottom: 8px;
+}
+
+#submitForm input[type="text"],
+#submitForm input[type="email"],
+#submitForm input[type="submit"] {
+width: 100%;
+padding: 8px;
+font-size: 1em;
+margin-bottom: 12px;
+}
+
+#submitForm input[type="submit"] {
+background-color: #8124d8;
+color: #fff;
+padding: 8px 16px;
+border: none;
+border-radius: 4px;
+cursor: pointer;
 }
 /* Adding aditional style in submit form container */
 #submitForm input{
-  margin-bottom: 10px;
+margin-bottom: 10px;
 }
 
-  @media screen and (max-width: 480px) {
-    /* Adjust header properties for screens with a maximum width of 480px */
-    header {
-      height: 20%;
-    }
+@media screen and (max-width: 480px) {
+  /* Adjust header properties for screens with a maximum width of 480px */
+  header {
+    height: 20%;
   }
-  @media screen and (max-width: 768px) {
-    /* Adjust header properties for screens with a maximum width of 768px */
-    header {
-      height: 15%;
-    }
-    .wrapper {
-      font-size: 12px;
-    }
-    img {
-      right: -5%;
-    }
+}
+@media screen and (max-width: 768px) {
+  /* Adjust header properties for screens with a maximum width of 768px */
+  header {
+    height: 15%;
   }
+  .wrapper {
+    font-size: 12px;
+  }
+  img {
+    right: -5%;
+  }
+}
