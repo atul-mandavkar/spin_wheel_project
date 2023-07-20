@@ -3,6 +3,7 @@ const spinBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
 const reward = document.getElementById("rewardName");
 const popupWin = document.getElementById("popupContainer");
+const containerSubmit = document.getElementById("containerSubmit");
 //Object that stores values of minimum and maximum angle for a value
 const rotationValues = [
   { minDegree: 0, maxDegree: 30, value: 2 },
@@ -157,4 +158,11 @@ function slowDownSound() {
     }
     setTimeout(slowDownSound, 100); // Adjust the delay as per your preference
   }
+}
+
+// fiuction to redeem reward
+function redeemReward(){
+  //console.log("heeee");
+  popupWin.style.display = "none";
+  containerSubmit.style.display = "flex";
 }

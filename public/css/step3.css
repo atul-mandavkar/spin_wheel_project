@@ -145,6 +145,32 @@ header > nav > button:active {
   cursor: pointer;
 }
 
+/* Adding css to center the form */
+#containerSubmit{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: none;/*
+  display: flex;*/
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  z-index: 9999; /* Ensure the popup is above other elements */
+}
+#submitForm{
+  background-color: #ffffff; /* White background color */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  text-align: center;
+}
+/* Adding aditional style in submit form container */
+#submitForm input{
+  margin-bottom: 10px;
+}
+
   @media screen and (max-width: 480px) {
     /* Adjust header properties for screens with a maximum width of 480px */
     header {
