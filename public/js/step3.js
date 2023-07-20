@@ -1,6 +1,8 @@
 const wheel = document.getElementById("wheel");
 const spinBtn = document.getElementById("spin-btn");
 const finalValue = document.getElementById("final-value");
+const reward = document.getElementById("rewardName");
+const popupWin = document.getElementById("popupContainer");
 //Object that stores values of minimum and maximum angle for a value
 const rotationValues = [
   { minDegree: 0, maxDegree: 30, value: 2 },
@@ -64,6 +66,21 @@ const valueGenerator = (angleValue) => {
     //if the angleValue is between min and max then display it
     if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
       finalValue.innerHTML = `<p>Value: ${i.value}</p>`;
+      if(i.value == 2){
+        popupWin.style.display = "flex";
+        reward.innerHTML = "You won $10";
+      }
+      else if(i.value == 4){
+        popupWin.style.display = "flex";
+        reward.innerHTML = "You won $100";
+      }
+      else if(i.value == 6){
+        popupWin.style.display = "flex";
+        reward.innerHTML = "You won $500";
+      }
+      else{
+        finalValue.innerHTML = "Better luck next time!";
+      }
       spinBtn.disabled = false;
       break;
     }
