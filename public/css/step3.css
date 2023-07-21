@@ -208,10 +208,39 @@ cursor: pointer;
 margin-bottom: 10px;
 }
 
+/* Adding style for Thank you Msg*/
+#thankyouContainer{
+  margin-bottom: 10px;
+}
+#thankyouMsg{
+  width: 450px; /* Adjust the width to your preference */
+  height: 350px; /* Adjust the height to your preference */
+  background-color: #bfafda; /* White background color */
+  color:#8124d8;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.2); /* Add a subtle shadow */
+  text-align: center;
+  position: absolute; /* Position it absolutely within the wrapper */
+  top: 50%; /* Center it vertically */
+  left: 50%; /* Center it horizontally */
+  transform: translate(-50%, -50%); /* Center it precisely */
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
 @media screen and (max-width: 480px) {
   /* Adjust header properties for screens with a maximum width of 480px */
   header {
     height: 20%;
+  }
+  #thankyouMsg{
+    width: 310px; /* Adjust the width to your preference */
+    height: 250px; /* Adjust the height to your preference */
+    
   }
 }
 @media screen and (max-width: 768px) {
@@ -224,5 +253,10 @@ margin-bottom: 10px;
   }
   img {
     right: -5%;
+  }
+  #thankyouMsg{
+    width: 280px; /* Adjust the width to your preference */
+    height: 250px; /* Adjust the height to your preference */
+    
   }
 }

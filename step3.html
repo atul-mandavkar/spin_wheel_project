@@ -17,7 +17,7 @@
     <nav>
       <button><a href="./login.html">Log in</a></button>
     </nav>
-  </header>-->ś
+  </header>-->
   <audio src="./media/new-audiomass-output2.mp3" id="spin-sound"></audio>
 
   <div class="wrapper">
@@ -41,13 +41,18 @@
 
   <!-- submit form -->
   <div id="containerSubmit" style="display: none;">
-    <form action="" id="submitForm">
+    <form action="" id="submitForm" onsubmit="thankyouWindow()">
       <label for="userName">User Name:</label>
       <input type="text" name="userName" id="userName"><br>
       <label for="userEmail">User Email:</label>
       <input type="email" name="userEmail" id="userEmail"><br>
       <input type="submit" value="Submit" id="userSubmit">
     </form>
+  </div>
+
+  <!-- Thank you msg -->
+  <div id="thankyouContainer" style="display: none;">
+    <h1 id="thankyouMsg">Thank you</h1>
   </div>
   
   <!-- Chart JS -->

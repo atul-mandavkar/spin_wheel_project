@@ -4,6 +4,7 @@ const finalValue = document.getElementById("final-value");
 const reward = document.getElementById("rewardName");
 const popupWin = document.getElementById("popupContainer");
 const containerSubmit = document.getElementById("containerSubmit");
+const thankyouContainer = document.getElementById("thankyouContainer");
 //Object that stores values of minimum and maximum angle for a value
 const rotationValues = [
   { minDegree: 0, maxDegree: 30, value: 2 },
@@ -165,4 +166,13 @@ function redeemReward(){
   //console.log("heeee");
   popupWin.style.display = "none";
   containerSubmit.style.display = "flex";
+}
+// fiuction to thank you msg
+function thankyouWindow(){
+  event.preventDefault();
+  var userName = document.getElementById("userName").value;
+  containerSubmit.style.display = "none";
+  thankyouContainer.style.display = "flex";
+  var thankyouText = document.getElementById("thankyouMsg");
+  thankyouText.innerHTML = `Thank you!<br> ${userName}`;
 }
