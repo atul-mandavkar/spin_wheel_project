@@ -8,7 +8,7 @@ body {
 height: 100vh;
 background: linear-gradient(135deg, #c3a3f1, #6414e9);
 
-}
+}/*
 header{
 padding: 0;
 margin: 0;
@@ -47,7 +47,7 @@ box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.6);
 header > nav > button:active {
 box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
 transform: translateY(1px);
-}
+}*/
 .wrapper {
   width: 90%;
   max-width: 34.37em;
@@ -117,8 +117,8 @@ margin-bottom: 10px;
 }
 
 #popupWindow {
-width: 450px; /* Adjust the width to your preference */
-height: 250px; /* Adjust the height to your preference */
+max-width: 450px; /* Adjust the width to your preference */
+max-height: 250px; /* Adjust the height to your preference */
 background-color: #bfafda; /* White background color */
 color:#8124d8;
 padding: 20px;
@@ -139,6 +139,7 @@ text-align: center;
 /* Add any additional styling for the content inside the popup */
 #popupWindow > #rewardName {
 margin-bottom: 10px;
+padding-bottom: 5px;
 }
 
 #popupWindow > #reedemButton {
@@ -167,8 +168,8 @@ position: absolute; /* Position it absolutely within the wrapper */
 top: 50%; /* Center it vertically */
 left: 50%; /* Center it horizontally */
 transform: translate(-50%, -50%); /* Center it precisely */
-width: 400px; /* Adjust the width to your preference */
-height: 300px; /* Adjust the height to your preference */
+min-width: 300px; /* Adjust the width to your preference */
+max-height: 300px; /* Adjust the height to your preference */
 background-color: #bfafda; /* White background color */
 padding: 20px;
 border-radius: 8px;

@@ -4,10 +4,7 @@ const finalValue = document.getElementById("final-value");
 const reward = document.getElementById("rewardName");
 const popupWin = document.getElementById("popupContainer");
 const containerSubmit = document.getElementById("containerSubmit");
-const userNameInput = document.getElementById("userName");
-const userEmailInput = document.getElementById("userEmail");
-
-// Object that stores values of minimum and maximum angle for a value
+//Object that stores values of minimum and maximum angle for a value
 const rotationValues = [
   { minDegree: 0, maxDegree: 30, value: 2 },
   { minDegree: 31, maxDegree: 90, value: 1 },
@@ -17,26 +14,27 @@ const rotationValues = [
   { minDegree: 271, maxDegree: 330, value: 3 },
   { minDegree: 331, maxDegree: 360, value: 2 },
 ];
-
-// Size of each piece
+//Size of each piece
 const data = [16, 16, 16, 16, 16, 16];
-
-// Background color for each piece
-const pieColors = [
-  "#712edd",
-  "#8969bd",
-  "#712edd",
-  "#8969bd",
-  "#712edd",
-  "#8969bd",
+//background color for each piece
+var pieColors = [
+  "#8b35bc",
+  "#b163da",
+  "#8b35bc",
+  "#b163da",
+  "#8b35bc",
+  "#b163da",
 ];
-
-// Create chart
+//Create chart
 let myChart = new Chart(wheel, {
+  //Plugin for displaying text on pie chart
   plugins: [ChartDataLabels],
+  //Chart Type Pie
   type: "pie",
   data: {
+    //Labels(values which are to be displayed on chart)
     labels: [1, 2, 3, 4, 5, 6],
+    //Settings for dataset/pie
     datasets: [
       {
         backgroundColor: pieColors,
@@ -45,13 +43,16 @@ let myChart = new Chart(wheel, {
     ],
   },
   options: {
+    //Responsive chart
     responsive: true,
     animation: { duration: 0 },
     plugins: {
+      //hide tooltip and legend
       tooltip: false,
       legend: {
         display: false,
       },
+      //display labels inside pie chart
       datalabels: {
         color: "#ffffff",
         formatter: (_, context) => context.chart.data.labels[context.dataIndex],
@@ -60,18 +61,26 @@ let myChart = new Chart(wheel, {
     },
   },
 });
-
-// Display value based on the randomAngle
+//display value based on the randomAngle
 const valueGenerator = (angleValue) => {
   for (let i of rotationValues) {
+    //if the angleValue is between min and max then display it
     if (angleValue >= i.minDegree && angleValue <= i.maxDegree) {
       finalValue.innerHTML = `<p>Value: ${i.value}</p>`;
-      if (i.value == 2 || i.value == 4 || i.value == 6) {
+      if(i.value == 2){
         popupWin.style.display = "flex";
-        reward.innerHTML = `Congratulations! You won $${i.value}`;
-      } else {
+        reward.innerHTML = "<b>Congradulation! You won $10</b>";
+      }
+      else if(i.value == 4){
         popupWin.style.display = "flex";
-        reward.innerHTML = "Better luck next time!";
+        reward.innerHTML = "<b>Congradulation! You won $100</b>";
+      }
+      else if(i.value == 6){
+        popupWin.style.display = "flex";
+        reward.innerHTML = "<b>Congradulation! You won $500</b>";
+      }
+      else{
+        finalValue.innerHTML = "Better luck next time!";
       }
       spinBtn.disabled = false;
       break;
@@ -79,20 +88,27 @@ const valueGenerator = (angleValue) => {
   }
 };
 
-// Spinner count
+//Spinner count
 let count = 0;
-// 100 rotations for animation and last rotation for result
+//100 rotations for animation and last rotation for result
 let resultValue = 101;
-// Start spinning
-// Rest of the code remains the same
-
+//Start spinning
 spinBtn.addEventListener("click", () => {
   spinBtn.disabled = true;
+  // Empty final value
   finalValue.innerHTML = `<p>Good Luck!</p>`;
+  // Generate random degrees to stop at
   let randomDegree = Math.floor(Math.random() * (355 - 0 + 1) + 0);
+  // Interval for rotation animation
   let rotationInterval = window.setInterval(() => {
+    // Set rotation for piechart
+    /*
+    Initially to make the piechart rotate faster we set resultValue to 101 so it rotates 101 degrees at a time and this reduces by 1 with every count. Eventually on last rotation we rotate by 1 degree at a time.
+    */
     myChart.options.rotation = myChart.options.rotation + resultValue;
+    // Update chart with new value
     myChart.update();
+    // If rotation > 360 reset it back to 0
     if (myChart.options.rotation >= 360) {
       count += 1;
       resultValue -= 5;
@@ -102,41 +118,23 @@ spinBtn.addEventListener("click", () => {
       clearInterval(rotationInterval);
       count = 0;
       resultValue = 101;
-      spinBtn.disabled = false; // Re-enable the spin button after wheel stops spinning
+      spinBtn.style.pointerEvents = "none";
+      // Addition for stop the spinning sound
       stopSpinSound();
-
-      // Show popup and redeem button only if the user wins a reward
-      if (finalValue.innerText !== "Better luck next time!") {
-        popupWin.style.display = "flex";
-        if (finalValue.innerText === "Value: 2") {
-          reward.innerHTML = "You won $10";
-          containerSubmit.style.display = "none";
-        } else if (finalValue.innerText === "Value: 4") {
-          reward.innerHTML = "You won $100";
-          containerSubmit.style.display = "none";
-        } else if (finalValue.innerText === "Value: 6") {
-          reward.innerHTML = "You won $500";
-          containerSubmit.style.display = "none";
-        } else {
-          // If the user wins something other than 2, 4, or 6
-          popupWin.style.display = "none";
-          containerSubmit.style.display = "flex";
-        }
-      } else {
-        // If the user gets "Better luck next time!"
-        popupWin.style.display = "none";
-        containerSubmit.style.display = "none";
-      }
     }
   }, 10);
+  // Addition for play the spinning sound
   playSpinSound();
 });
+
+// Creating fuction to handle sound effect
 // Function to play the spinning sound
 function playSpinSound() {
   var spinSound = document.getElementById("spin-sound");
-  spinSound.loop = true;
-  spinSound.playbackRate = 2;
-  spinSound.volume = 1;
+  spinSound.loop = true; // Enable looping
+  // Play the spinning sound with initial settings
+  spinSound.playbackRate = 2; // Fast initial speed
+  spinSound.volume = 1; // Full volume
   spinSound.play();
   slowDownSound();
 }
@@ -144,38 +142,27 @@ function playSpinSound() {
 // Function to stop the spinning sound
 function stopSpinSound() {
   var spinSound = document.getElementById("spin-sound");
-  spinSound.loop = false;
+  spinSound.loop = false; // Disable looping
   spinSound.pause();
-  spinSound.currentTime = 0;
+  spinSound.currentTime = 0; // Reset the sound to the beginning
 }
 
 // Function to gradually slow down the sound
 function slowDownSound() {
+  //console.log("hello");
   var spinSound = document.getElementById("spin-sound");
   if (spinSound.playbackRate > 0.1) {
-    spinSound.playbackRate -= 0.01;
-    if (spinSound.volume > 0.1) {
-      spinSound.volume -= 0.01;
+    spinSound.playbackRate -= 0.01; // Decrease playback rate
+    if(spinSound.volume > 0.1) {
+      spinSound.volume -= 0.01; // Decrease volume
     }
-    setTimeout(slowDownSound, 100);
+    setTimeout(slowDownSound, 100); // Adjust the delay as per your preference
   }
 }
 
-// Function to redeem reward
-function redeemReward() {
+// fiuction to redeem reward
+function redeemReward(){
+  //console.log("heeee");
   popupWin.style.display = "none";
   containerSubmit.style.display = "flex";
 }
-
-// Function to handle form submission
-document.getElementById("submitForm").addEventListener("submit", function (event) {
-  event.preventDefault();
-  const userName = userNameInput.value;
-  const userEmail = userEmailInput.value;
-  // Process the user's name and email, e.g., send it to a server or perform some other action
-  console.log(`User Name: ${userName}, User Email: ${userEmail}`);
-  // Reset form fields
-  userNameInput.value = "";
-  userEmailInput.value = "";
-  containerSubmit.style.display = "none";
-});

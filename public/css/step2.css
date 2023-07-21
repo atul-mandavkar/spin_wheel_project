@@ -4,6 +4,7 @@ body {
     color: #faebd7;
     margin: 0;
     padding: 0;
+    background: linear-gradient(135deg, #c3a3f1, #6414e9);
     display: flex;
     justify-content: center;
     align-items: center;

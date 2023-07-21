@@ -1,8 +1,9 @@
 
 body {
   margin: 0;
-  padding: 0;
-  background: linear-gradient(rgb(21, 13, 107) 1.1%, rgb(188, 16, 80) 130.5%);
+  padding: 0;/*
+  background: linear-gradient(rgb(21, 13, 107) 1.1%, rgb(188, 16, 80) 130.5%);*/
+background: linear-gradient(135deg, #c3a3f1, #6414e9);
   display: flex;
   justify-content: center;
   align-items: center;
